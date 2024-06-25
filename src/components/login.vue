@@ -98,6 +98,7 @@ async function loginUsuario() {
       loading.value = false
     } else {
       registroFallido.value = true;
+      loading.value = false
       ocultar();
     }
   } catch (error) {

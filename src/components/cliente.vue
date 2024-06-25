@@ -97,18 +97,6 @@
                       <q-spinner color="primary" size="1em" />
                     </template>
                   </q-btn>
-                  <!-- <button
-                    v-if="props.row.estado == 0"
-                    class="btn_activo"
-                    :id="'button-' + props.row.id"
-                    @click="activar(props.row)"
-                  >
-                    <img
-                      class="img_activo"
-                      src="/src/img/garrapata.png"
-                      alt="activo"
-                    />
-                  </button> -->
                   <q-btn
                     v-else
                     class="btn_inactivo"
@@ -510,8 +498,10 @@ let listarPorPlan = async () => {
 };
 
 let cliente = async () => {
+  loading.value = true;
   await usePlanes.getPlanes();
   router.push("/registroClientes");
+  loading.value = false;
 };
 
 let text_fecha = ref("");
