@@ -88,11 +88,20 @@
                     @click.prevent="activar(props.row)"
                     :loading="loading"
                   >
-                    <img
-                      class="img_activo"
-                      src="/src/img/garrapata.png"
-                      alt="activo"
-                    />
+                    <svg
+                      width="30"
+                      height="30"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M6 12l4 4l8 -8"
+                        stroke="white"
+                        stroke-width="2"
+                        fill="none"
+                      />
+                    </svg>
                     <template v-slot:loading>
                       <q-spinner color="primary" size="1em" />
                     </template>
@@ -104,11 +113,20 @@
                     @click.prevent="inactivar(props.row)"
                     :loading="loading"
                   >
-                    <img
-                      class="img_inactivo"
-                      src="/src/img/equis.png"
-                      alt="inactivo"
-                    />
+                    <svg
+                      width="30"
+                      height="30"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M8 8l8 8M8 16l8 -8"
+                        stroke="white"
+                        stroke-width="2"
+                        fill="none"
+                      />
+                    </svg>
                     <template v-slot:loading>
                       <q-spinner color="primary" size="1em" />
                     </template>
@@ -760,23 +778,23 @@ let ocultar = () => {
 };
 
 let activar = async (row) => {
-loading.value = true
+  loading.value = true;
   await useClientes.putActivar(row._id);
   r = await useClientes.getClientes();
   setTimeout(() => {
     rows.value = r;
-    loading.value = false
-  }, 500)
+    loading.value = false;
+  }, 500);
 };
 
 let inactivar = async (row) => {
-  loading.value = true
+  loading.value = true;
   await useClientes.putInactivar(row._id);
   r = await useClientes.getClientes();
   setTimeout(() => {
     rows.value = r;
-    loading.value = false
-  }, 500)
+    loading.value = false;
+  }, 500);
 };
 
 onMounted(() => {
