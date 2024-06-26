@@ -347,7 +347,22 @@
       </div>
     </div>
     <div class="cont_seguimiento" v-if="Seguimiento">
-      <img @click="ocultar()" class="img_x" src="/src/img/equis2.png" alt="" />
+      <svg
+        @click="ocultar()"
+        class="img_x"
+        width="30"
+        height="30"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M8 8l8 8M8 16l8 -8"
+          stroke="black"
+          stroke-width="2"
+          fill="none"
+        />
+      </svg>
       <div class="cont_fecha">
         <p class="titulo_techa">Fecha:</p>
         <p class="text_fecha">{{ text_fecha }}</p>
@@ -1261,6 +1276,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   right: 10px;
   width: 30px;
   cursor: pointer;
+  color: #000000;
 }
 
 button {
