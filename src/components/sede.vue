@@ -81,7 +81,22 @@
       </div>
     </div>
     <div class="login-box" v-if="form">
-      <img @click="ocultar()" class="img_x" src="/src/img/equis.png" alt="" />
+      <svg
+        width="30"
+        height="30"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        class="img_x"
+        @click="ocultar()"
+      >
+        <path
+          d="M8 8l8 8M8 16l8 -8"
+          stroke="white"
+          stroke-width="2"
+          fill="none"
+        />
+      </svg>
       <form>
         <div class="user-box">
           <input type="text" name="" required="" v-model="Nombre" />
@@ -303,6 +318,7 @@ let modificarSede = async () => {
     if (sede.nombre === "") {
       text.value = "El campo nombre es obligatorio";
       registroFallido.value = true;
+      loading.value = false;
       ocultarD();
       return;
     }
@@ -310,6 +326,7 @@ let modificarSede = async () => {
     if (sede.direccion === "") {
       text.value = "El campo direccion es obligatorio";
       registroFallido.value = true;
+      loading.value = false;
       ocultarD();
       return;
     }
@@ -317,6 +334,7 @@ let modificarSede = async () => {
     if (sede.codigo === "") {
       text.value = "El campo codigo es obligatorio";
       registroFallido.value = true;
+      loading.value = false;
       ocultarD();
       return;
     }
@@ -324,6 +342,7 @@ let modificarSede = async () => {
     if (sede.horario === "") {
       text.value = "El campo horario es obligatorio";
       registroFallido.value = true;
+      loading.value = false;
       ocultarD();
       return;
     }
@@ -331,6 +350,7 @@ let modificarSede = async () => {
     if (sede.ciudad === "") {
       text.value = "El campo ciudad es obligatorio";
       registroFallido.value = true;
+      loading.value = false;
       ocultarD();
       return;
     }
@@ -338,6 +358,7 @@ let modificarSede = async () => {
     if (sede.telefono === "") {
       text.value = "El campo telefono es obligatorio";
       registroFallido.value = true;
+      loading.value = false;
       ocultarD();
       return;
     }
@@ -352,6 +373,7 @@ let modificarSede = async () => {
   } catch (error) {
     text.value = "Ha ocurrido un error";
     registroFallido.value = true;
+    loading.value = false;
     ocultarD();
     return;
   }

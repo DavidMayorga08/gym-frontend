@@ -56,12 +56,13 @@ const routes = [
         path: '/menu',
         name: 'menu',
         component: menu,
+        beforeEnter: auth, meta: { rol: [1, 2, 3] },
         children:[
             {
                 path: '/cliente',
                 name: 'cliente',
                 component: cliente,
-                beforeEnter: auth, meta: { rol: [1, 2] }
+                beforeEnter: auth, meta: { rol: [1, 2, 3] }
             },
             {
                 path: '/ingreso',

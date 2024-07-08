@@ -81,7 +81,22 @@
       </div>
     </div>
     <div class="login-box" v-if="form">
-      <img @click="ocultar()" class="img_x" src="/src/img/equis.png" alt="" />
+      <svg
+        width="30"
+        height="30"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        class="img_x"
+        @click="ocultar()"
+      >
+        <path
+          d="M8 8l8 8M8 16l8 -8"
+          stroke="white"
+          stroke-width="2"
+          fill="none"
+        />
+      </svg>
       <form>
         <div class="user-box">
           <input type="date" name="" required="" v-model="Fecha" />
@@ -295,6 +310,7 @@ let modificarVenta = async () => {
     if (venta.fecha === "") {
       text.value = "El campo fecha no puede estar vacio";
       registroFallido.value = true;
+      loading.value = false;
       ocultarD();
       return;
     }
@@ -302,6 +318,7 @@ let modificarVenta = async () => {
     if (venta.codigo_producto === "") {
       text.value = "El campo codigo del producto no puede estar vacio";
       registroFallido.value = true;
+      loading.value = false;
       ocultarD();
       return;
     }
@@ -309,6 +326,7 @@ let modificarVenta = async () => {
     if (venta.valor === "") {
       text.value = "El campo valor no puede estar vacio";
       registroFallido.value = true;
+      loading.value = false;
       ocultarD();
       return;
     }
@@ -316,6 +334,7 @@ let modificarVenta = async () => {
     if (venta.cantidad === "") {
       text.value = "El campo cantidad no puede estar vacio";
       registroFallido.value = true;
+      loading.value = false;
       ocultarD();
       return;
     }
@@ -330,6 +349,7 @@ let modificarVenta = async () => {
   } catch (error) {
     text.value = "Error al modificar la venta";
     registroFallido.value = true;
+    loading.value = false;
     ocultarD();
   }
 };

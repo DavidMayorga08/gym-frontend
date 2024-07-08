@@ -186,7 +186,22 @@
       </div>
     </div>
     <div class="login-box" v-if="form">
-      <img @click="ocultar()" class="img_x" src="/src/img/equis.png" alt="" />
+      <svg
+        width="30"
+        height="30"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        class="img_x"
+        @click="ocultar()"
+      >
+        <path
+          d="M8 8l8 8M8 16l8 -8"
+          stroke="white"
+          stroke-width="2"
+          fill="none"
+        />
+      </svg>
       <div class="form">
         <form>
           <div class="user-box">
@@ -223,7 +238,7 @@
             <input type="text" name="" required="" v-model="limitaciones" />
             <label>Limitaciones</label>
           </div>
-          <div class="user-box">
+          <div class="user-box" v-if="est">
             <input type="Number" name="" required="" v-model="estado" />
             <label>Estado</label>
           </div>
@@ -655,6 +670,7 @@ let modificarcliente = async () => {
     if (cliente.nombre === "") {
       text.value = "El campo nombre es obligatorio";
       registroFallido.value = true;
+      loading.value = false;
       ocultar();
       return;
     }
@@ -662,6 +678,7 @@ let modificarcliente = async () => {
     if (cliente.fechaNacimiento === "") {
       text.value = "El campo fecha de nacimiento es obligatorio";
       registroFallido.value = true;
+      loading.value = false;
       ocultar();
       return;
     }
@@ -669,6 +686,7 @@ let modificarcliente = async () => {
     if (cliente.edad === "") {
       text.value = "El campo edad es obligatorio";
       registroFallido.value = true;
+      loading.value = false;
       ocultar();
       return;
     }
@@ -676,6 +694,7 @@ let modificarcliente = async () => {
     if (cliente.fechaIngreso === "") {
       text.value = "El campo fecha de ingreso es obligatorio";
       registroFallido.value = true;
+      loading.value = false;
       ocultar();
       return;
     }
@@ -683,6 +702,7 @@ let modificarcliente = async () => {
     if (cliente.documento === "") {
       text.value = "El campo documento es obligatorio";
       registroFallido.value = true;
+      loading.value = false;
       ocultar();
       return;
     }
@@ -690,6 +710,7 @@ let modificarcliente = async () => {
     if (cliente.direccion === "") {
       text.value = "El campo dirección es obligatorio";
       registroFallido.value = true;
+      loading.value = false;
       ocultar();
       return;
     }
@@ -697,6 +718,7 @@ let modificarcliente = async () => {
     if (cliente.Telefono === "") {
       text.value = "El campo telefono es obligatorio";
       registroFallido.value = true;
+      loading.value = false;
       ocultar();
       return;
     }
@@ -704,6 +726,7 @@ let modificarcliente = async () => {
     if (cliente.limitaciones === "") {
       text.value = "El campo limitaciones es obligatorio";
       registroFallido.value = true;
+      loading.value = false;
       ocultar();
       return;
     }
@@ -711,6 +734,7 @@ let modificarcliente = async () => {
     if (cliente.estado === "") {
       text.value = "El campo estado es obligatorio";
       registroFallido.value = true;
+      loading.value = false;
       ocultar();
       return;
     }
@@ -718,6 +742,7 @@ let modificarcliente = async () => {
     if (cliente.plan === "") {
       text.value = "El campo plan es obligatorio";
       registroFallido.value = true;
+      loading.value = false;
       ocultar();
       return;
     }
@@ -725,6 +750,7 @@ let modificarcliente = async () => {
     if (cliente.seguimiento.fecha === "") {
       text.value = "El campo fecha es obligatorio";
       registroFallido.value = true;
+      loading.value = false;
       ocultar();
       return;
     }
@@ -732,6 +758,7 @@ let modificarcliente = async () => {
     if (cliente.seguimiento.peso === "") {
       text.value = "El campo peso es obligatorio";
       registroFallido.value = true;
+      loading.value = false;
       ocultar();
       return;
     }
@@ -739,6 +766,7 @@ let modificarcliente = async () => {
     if (cliente.seguimiento.Altura === "") {
       text.value = "El campo altura es obligatorio";
       registroFallido.value = true;
+      loading.value = false;
       ocultar();
       return;
     }
@@ -746,6 +774,7 @@ let modificarcliente = async () => {
     if (cliente.seguimiento.imc === "") {
       text.value = "El campo imc es obligatorio";
       registroFallido.value = true;
+      loading.value = false;
       ocultar();
       return;
     }
@@ -753,6 +782,7 @@ let modificarcliente = async () => {
     if (cliente.seguimiento.medidaBrazo === "") {
       text.value = "El campo medida del brazo es obligatorio";
       registroFallido.value = true;
+      loading.value = false;
       ocultar();
       return;
     }
@@ -760,6 +790,7 @@ let modificarcliente = async () => {
     if (cliente.seguimiento.medidaPierna === "") {
       text.value = "El campo medida de la pierna es obligatorio";
       registroFallido.value = true;
+      loading.value = false;
       ocultar();
       return;
     }
@@ -767,6 +798,7 @@ let modificarcliente = async () => {
     if (cliente.seguimiento.medidaCintura === "") {
       text.value = "El campo medida de la cintura es obligatorio";
       registroFallido.value = true;
+      loading.value = false;
       ocultar();
       return;
     }
@@ -781,6 +813,7 @@ let modificarcliente = async () => {
   } catch (error) {
     text.value = "Error al modificar el cliente";
     registroFallido.value = true;
+    loading.value = false;
     ocultarD();
     console.log(error);
     return;

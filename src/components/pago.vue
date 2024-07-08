@@ -165,7 +165,22 @@
       </div>
     </div>
     <div class="login-box" v-if="form">
-      <img @click="ocultar()" class="img_x" src="/src/img/equis.png" alt="" />
+      <svg
+        width="30"
+        height="30"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        class="img_x"
+        @click="ocultar()"
+      >
+        <path
+          d="M8 8l8 8M8 16l8 -8"
+          stroke="white"
+          stroke-width="2"
+          fill="none"
+        />
+      </svg>
       <form>
         <div class="user-box">
           <select required v-model="selectedOptionC">
@@ -201,7 +216,7 @@
           <input type="number" name="" required="" v-model="Valor" />
           <label>Valor</label>
         </div>
-        <div class="user-box">
+        <div class="user-box" v-if="est">
           <input type="text" name="" required="" v-model="Estado" />
           <label>Estado</label>
         </div>
@@ -488,30 +503,35 @@ let modificarPago = async () => {
     if (pago.cliente_id === "") {
       text.value = "Seleccione un cliente";
       registroFallido.value = true;
+      loading.value = false;
       ocultarD();
       return;
     }
     if (pago.plan === "") {
       text.value = "Seleccione un plan";
       registroFallido.value = true;
+      loading.value = false;
       ocultarD();
       return;
     }
     if (pago.fecha === "") {
       text.value = "Seleccione una fecha";
       registroFallido.value = true;
+      loading.value = false;
       ocultarD();
       return;
     }
     if (pago.valor === "") {
       text.value = "Ingrese un valor";
       registroFallido.value = true;
+      loading.value = false;
       ocultarD();
       return;
     }
     if (pago.estado === "") {
       text.value = "Ingrese un estado";
       registroFallido.value = true;
+      loading.value = false;
       ocultarD();
       return;
     }
@@ -526,6 +546,7 @@ let modificarPago = async () => {
   } catch (error) {
     text.value = "Error al modificar el pago";
     registroFallido.value = true;
+    loading.value = false;
     ocultarD();
   }
 };

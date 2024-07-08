@@ -86,7 +86,22 @@
       </div>
     </div>
     <div class="login-box" v-if="form">
-      <img @click="ocultar()" class="img_x" src="/src/img/equis.png" alt="" />
+      <svg
+        width="30"
+        height="30"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        class="img_x"
+        @click="ocultar()"
+      >
+        <path
+          d="M8 8l8 8M8 16l8 -8"
+          stroke="white"
+          stroke-width="2"
+          fill="none"
+        />
+      </svg>
       <form>
         <div class="user-box">
           <select required v-model="selectedOptionC">
@@ -352,18 +367,21 @@ let modificarIngreso = async () => {
     if (ingreso.cliente_id === "") {
       text.value = "El campo Id del cliente no puede estar vacío";
       registroFallido.value = true;
+      loading.value = false;
       ocultarD();
       return;
     }
     if (ingreso.fecha === "") {
       text.value = "El campo fecha no puede estar vacío";
       registroFallido.value = true;
+      loading.value = false;
       ocultarD();
       return;
     }
     if (ingreso.sede === "") {
       text.value = "El campo Sede no puede estar vacío";
       registroFallido.value = true;
+      loading.value = false;
       ocultarD();
       return;
     }
@@ -378,6 +396,7 @@ let modificarIngreso = async () => {
   } catch (error) {
     text.value = "Error al modificar el ingreso";
     registroFallido.value = true;
+    loading.value = false;
     ocultarD();
     return;
   }

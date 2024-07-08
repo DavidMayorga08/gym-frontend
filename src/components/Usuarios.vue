@@ -158,7 +158,22 @@
       </div>
     </div>
     <div class="login-box" v-if="form">
-      <img @click="ocultar()" class="img_x" src="/src/img/equis.png" alt="" />
+      <svg
+        width="30"
+        height="30"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        class="img_x"
+        @click="ocultar()"
+      >
+        <path
+          d="M8 8l8 8M8 16l8 -8"
+          stroke="white"
+          stroke-width="2"
+          fill="none"
+        />
+      </svg>
       <form>
         <div class="user-box">
           <input type="text" name="" required="" v-model="nombre" />
@@ -185,12 +200,17 @@
           <input type="text" name="" required="" v-model="Telefono" />
           <label>Telefono</label>
         </div>
-        <div class="user-box">
+        <div class="user-box" v-if="est">
           <input type="text" name="" required="" v-model="estado" />
           <label>Estado</label>
         </div>
         <div class="user-box">
-          <input type="text" name="" required="" v-model="Rol" />
+          <select required v-model="Rol">
+            <option value="" disabled selected hidden></option>
+            <option value="1">Administrador</option>
+            <option value="2">Recepcionista</option>
+            <option value="3">Entrenador</option>
+          </select>
           <label>Rol</label>
         </div>
         <center>
@@ -438,6 +458,7 @@ let modificarUsuario = async () => {
     if (usuario.nombre === "") {
       text.value = "El campo nombre no puede estar vacio";
       registroFallido.value = true;
+      loading.value = false;
       ocultarD();
       return;
     }
@@ -445,6 +466,7 @@ let modificarUsuario = async () => {
     if (usuario.sede === "") {
       text.value = "El campo sede no puede estar vacio";
       registroFallido.value = true;
+      loading.value = false;
       ocultarD();
       return;
     }
@@ -452,6 +474,7 @@ let modificarUsuario = async () => {
     if (usuario.correo === "") {
       text.value = "El campo correo no puede estar vacio";
       registroFallido.value = true;
+      loading.value = false;
       ocultarD();
       return;
     }
@@ -459,6 +482,7 @@ let modificarUsuario = async () => {
     if (usuario.telefono === "") {
       text.value = "El campo telefono no puede estar vacio";
       registroFallido.value = true;
+      loading.value = false;
       ocultarD();
       return;
     }
@@ -466,6 +490,7 @@ let modificarUsuario = async () => {
     if (usuario.estado === "") {
       text.value = "El campo estado no puede estar vacio";
       registroFallido.value = true;
+      loading.value = false;
       ocultarD();
       return;
     }
@@ -473,6 +498,7 @@ let modificarUsuario = async () => {
     if (usuario.rol === "") {
       text.value = "El campo rol no puede estar vacio";
       registroFallido.value = true;
+      loading.value = false;
       ocultarD();
       return;
     }
@@ -487,6 +513,7 @@ let modificarUsuario = async () => {
   } catch (error) {
     text.value = "Error al modificar el usuario";
     registroFallido.value = true;
+    loading.value = false;
     ocultarD();
   }
 };

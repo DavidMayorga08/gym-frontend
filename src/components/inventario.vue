@@ -96,7 +96,22 @@
       <p class="text_total">{{ total }}</p>
     </div>
     <div class="login-box" v-if="form">
-      <img @click="ocultar()" class="img_x" src="/src/img/equis.png" alt="" />
+      <svg
+        width="30"
+        height="30"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        class="img_x"
+        @click="ocultar()"
+      >
+        <path
+          d="M8 8l8 8M8 16l8 -8"
+          stroke="white"
+          stroke-width="2"
+          fill="none"
+        />
+      </svg>
       <form>
         <div class="user-box">
           <input type="text" name="" required="" v-model="Codigo" />
@@ -327,24 +342,28 @@ let modificarInventario = async () => {
     if (inventario.codigo === "") {
       text.value = "El campo Codigo es obligatorio";
       registroFallido.value = true;
+      loading.value = false;
       ocultarD();
       return;
     }
     if (inventario.descripcion === "") {
       text.value = "El campo Descripcion es obligatorio";
       registroFallido.value = true;
+      loading.value = false;
       ocultarD();
       return;
     }
     if (inventario.valor === "") {
       text.value = "El campo Valor es obligatorio";
       registroFallido.value = true;
+      loading.value = false;
       ocultarD();
       return;
     }
     if (inventario.cantidad === "") {
       text.value = "El campo Cantidad es obligatorio";
       registroFallido.value = true;
+      loading.value = false;
       ocultarD();
       return;
     }
@@ -359,6 +378,7 @@ let modificarInventario = async () => {
   } catch (error) {
     text.value = "Error al modificar el inventario";
     registroFallido.value = true;
+    loading.value = false;
     ocultarD();
   }
 }

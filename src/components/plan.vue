@@ -153,7 +153,22 @@
       </div>
     </div>
     <div class="login-box" v-if="form">
-      <img @click="ocultar()" class="img_x" src="/src/img/equis.png" alt="" />
+      <svg
+        width="30"
+        height="30"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        class="img_x"
+        @click="ocultar()"
+      >
+        <path
+          d="M8 8l8 8M8 16l8 -8"
+          stroke="white"
+          stroke-width="2"
+          fill="none"
+        />
+      </svg>
       <form>
         <div class="user-box">
           <input type="text" name="" required="" v-model="Codigo" />
@@ -171,7 +186,7 @@
           <input type="Number" name="" required="" v-model="Dias" />
           <label>Dias</label>
         </div>
-        <div class="user-box">
+        <div class="user-box" v-if="est">
           <input type="text" name="" required="" v-model="Estado" />
           <label>Estado</label>
         </div>
@@ -398,6 +413,7 @@ let modificarPlan = async () => {
     if (plan.codigo === "") {
       text.value = "El campo Codigo es obligatorio";
       registroFallido.value = true;
+      loading.value = false;
       ocultarD();
       return;
     }
@@ -405,6 +421,7 @@ let modificarPlan = async () => {
     if (plan.descripcion === "") {
       text.value = "El campo Descripcion es obligatorio";
       registroFallido.value = true;
+      loading.value = false;
       ocultarD();
       return;
     }
@@ -412,6 +429,7 @@ let modificarPlan = async () => {
     if (plan.valor === "") {
       text.value = "El campo Valor es obligatorio";
       registroFallido.value = true;
+      loading.value = false;
       ocultarD();
       return;
     }
@@ -419,6 +437,7 @@ let modificarPlan = async () => {
     if (plan.dias === "") {
       text.value = "El campo Dias es obligatorio";
       registroFallido.value = true;
+      loading.value = false;
       ocultarD();
       return;
     }
@@ -426,6 +445,7 @@ let modificarPlan = async () => {
     if (plan.estado === "") {
       text.value = "El campo Estado es obligatorio";
       registroFallido.value = true;
+      loading.value = false;
       ocultarD();
       return;
     }
@@ -440,6 +460,7 @@ let modificarPlan = async () => {
   } catch (error) {
     text.value = "Error al modificar el plan";
     registroFallido.value = true;
+    loading.value = false;
     ocultarD();
   }
 };
