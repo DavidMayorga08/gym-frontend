@@ -566,7 +566,7 @@ let verSeguimiento = (seguimiento) => {
   text_fecha.value = seguimiento[0].fecha.split("T")[0];
   text_peso.value = seguimiento[0].peso;
   text_altura.value = seguimiento[0].altura;
-  text_imc.value = seguimiento[0].imc;
+  text_imc.value = parseFloat(seguimiento[0].imc).toFixed(2);
   text_medidaBrazo.value = seguimiento[0].medidaBrazo;
   text_medidaPierna.value = seguimiento[0].medidaPierna;
   text_medidaCintura.value = seguimiento[0].medidaCintura;
