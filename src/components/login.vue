@@ -76,8 +76,8 @@ const ocultar = () => {
   }, 3000);
 };
 
-let correo = ref("");
-let contraseña = ref("");
+let correo = ref("mejiaplata@gmail.com");
+let contraseña = ref("nolefio12");
 let passwordFieldType = ref("password");
 
 const togglePasswordVisibility = () => {
