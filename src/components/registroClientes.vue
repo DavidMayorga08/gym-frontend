@@ -433,7 +433,6 @@ async function cliente() {
     fecha.value = "";
     peso.value = "";
     Altura.value = "";
-    imc.value = "";
     medidaBrazo.value = "";
     medidaPierna.value = "";
     medidaCintura.value = "";
